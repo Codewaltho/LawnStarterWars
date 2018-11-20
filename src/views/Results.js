@@ -1,5 +1,5 @@
 import React from "react";
-//import XXXXXX from "./ResultsMapper";
+import ResultsMapper from "./ResultsMapper";
 
 const Results = props => (
   <div className="MatchesBG">
@@ -15,7 +15,7 @@ const Results = props => (
      :
      ( <div className="MatchesBG">
         {props.Results.map((item, i) => ()
-          <ResultsMapper //not yet coded
+          <ResultsMapper
           />
         ))}
       </div>
