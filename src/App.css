@@ -34,9 +34,10 @@ header {
   font-weight: 600;
   color: #383838;
 }
-
-/* Radio Buttons placeholder */
-
+.RadioToggle {
+  font-weight: bold;
+  color: #000000;
+}
 .SearchArea {
   width: 350px;
   height: 40px;
@@ -86,18 +87,22 @@ header {
   font-weight: bold;
   color: #000000;
 }
-
 .ResultBreak {
   height: 1px;
   background-color: #c4c4c4;
   margin: 10px 0px;
 }
-
 .ResultName {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: bold;
   color: #000000;
+}
+.ZeroMatches {
+  font-weight: bold;
+  color: #c4c4c4;
+  text-align: center;
+  margin-top: 40%;
 }
 .DetailsButton {
   width: 134px;

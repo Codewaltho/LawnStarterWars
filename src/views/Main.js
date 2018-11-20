@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import axios from "axios";
+import SearchBar from "./SearchBar";
+import Results from "./Results";
 
 export default class Home extends Component {
-  render() {
-    return <div>Home</div>;
-  }
+  constructor(props) {}
 }
+
+//Use axios for URL. import SearchBar and Results to
