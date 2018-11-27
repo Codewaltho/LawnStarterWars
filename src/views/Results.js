@@ -1,21 +1,24 @@
 import React from "react";
-import ResultsMapper from "./ResultsMapper";
+import IndividualResult from "./IndividualResult";
 
 const Results = props => (
-  <div className="MatchesBG">
-    <div className="Results">Results</div>
-    <div className="ResultBreak" />
-    {props.nowSearching ? (
-      <div className="ZeroMatches">Searching....</div>
+  <div className="MatchesBG aside">
+    <div className="ResultsTitle">Results</div>
+    <div className="divider" />
+    {props.currentlySearching ? (
+      <div className="NoResults">Searching....</div>
     ) : props.Results.length === 0 ? (
-      <div className="ZeroMatches">
+      <div className="NoResults">
         <span>There are zero matches.</span>
         <span>Use the form to search for People or Movies. </span>
       </div>
-     :
-     ( <div className="MatchesBG">
-        {props.Results.map((item, i) => ()
-          <ResultsMapper
+    ) : (
+      <div className="ResultsContainer">
+        {props.Results.map((item, i) => (
+          <IndividualResult
+            key={`${item}-${i}`}
+            result={item}
+            topic={props.topic}
           />
         ))}
       </div>

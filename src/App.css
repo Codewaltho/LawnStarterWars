@@ -13,7 +13,12 @@ header {
   background-color: #ffffff;
 }
 
+span {
+  display: block;
+}
+
 .SWStarter {
+  padding: 14px 0;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
@@ -21,11 +26,24 @@ header {
 }
 
 .SearchContainer {
+  float: left;
   width: 410px;
   height: 230px;
+  margin-left: 0%;
+  margin-right: 1%;
   border-radius: 4px;
+  box-sizing: border-box;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
+  border: solid 1px var(--white);
   background-color: #ffffff;
+  padding: 30px;
+}
+@media all and (max-width: 1430px) {
+  .SearchContainer {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 2%;
+  }
 }
 
 .What-are-you-searching-for {
@@ -34,11 +52,17 @@ header {
   font-weight: 600;
   color: #383838;
 }
-.RadioToggle {
+
+.RadioSearch {
   font-weight: bold;
   color: #000000;
 }
-.SearchArea {
+
+.People {
+  margin: 20px 5px 20px 30px;
+}
+
+.Searchbox {
   width: 350px;
   height: 40px;
   border-radius: 4px;
@@ -70,61 +94,172 @@ header {
   border: solid 1px #c4c4c4;
   background-color: #c4c4c4;
 }
+input[type="radio"] {
+  cursor: pointer;
+}
+input[type="text"] {
+  padding: 10px 11px;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: Montserrat;
+  font-size: 14px;
+}
 
 .MatchesBG {
   float: right;
+  margin-right: 210px;
+  margin-left: 1%;
   width: 582px;
   height: 582px;
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
+  border: solid 1px var(--white);
   background-color: #ffffff;
   padding: 30px;
 }
+@media all and (max-width: 1430px) {
+  .MatchesBG {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}
 
-.Results {
+.ResultsTitle {
   font-size: 18px;
   font-weight: bold;
   color: #000000;
 }
-.ResultBreak {
+
+.divider {
   height: 1px;
   background-color: #c4c4c4;
   margin: 10px 0px;
 }
+
 .ResultName {
+  width: 149px;
+  height: 20px;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: bold;
   color: #000000;
 }
-.ZeroMatches {
-  font-weight: bold;
-  color: #c4c4c4;
-  text-align: center;
-  margin-top: 40%;
-}
+
 .DetailsButton {
   width: 134px;
   height: 34px;
   border-radius: 17px;
   background-color: #0ab463;
+  font-weight: bold;
+  color: #ffffff;
+  float: right;
+  margin-top: -7px;
   text-align: center;
+  text-decoration: none;
 }
 .DetailsButton:hover {
+  background-color: #089954;
   cursor: pointer;
 }
-.DetailsPerson { */ Person Details
-  width: 804px;
-  height: 417px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
-  background-color: #ffffff;
+button:focus {
+  outline: none;
+  box-shadow: 0 0 3pt 2pt #0ee67d;
 }
-.DetailsMovie {
-  width: 804px;
-  height: 537px;
+
+.NoResults {
+  font-weight: bold;
+  color: #c4c4c4;
+  text-align: center;
+  margin-top: 40%;
+}
+@media all and (min-width: 1430px) {
+  .NoResults {
+    margin-top: 30%;
+  }
+}
+
+.DetailsBG {
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
+  border: solid 1px var(--white);
   background-color: #ffffff;
+  margin: 0 25%;
+  padding: 30px;
+}
+
+.ResultsTitle {
+  margin-bottom: 5%;
+}
+
+.Details {
+  margin-bottom: 18%;
+}
+
+.Movies {
+  margin-bottom: 18%;
+}
+
+.divider-details {
+  width: auto;
+  height: 1px;
+  background-color: #c4c4c4;
+  margin: 10px 0px;
+}
+.details-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+}
+
+.wrapper > * {
+  flex: 1 100%;
+}
+
+@media all and (min-width: 600px) {
+  .aside {
+    flex: 1 auto;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .main {
+    flex: 2 0px;
+  }
+  .Details {
+    order: 2;
+    padding-right: 3%;
+  }
+  .Movies {
+    order: 3;
+  }
+  .footer {
+    order: 4;
+  }
+}
+
+/**
+LOADING
+*/
+
+.loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 70%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+svg path,
+svg rect {
+  fill: #0ab463;
 }

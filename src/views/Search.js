@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-class SearchBar extends Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      topSearch: ["Chewbacca", " Yoda", " Boba Fett"],
-      hasText: false,
+      topResults: ["Chewbacca", " Yoda", "  Boba Fett"],
+      textInSearch: false,
       searched: "",
-      category: "people",
+      topic: "people",
       redirect: false
     };
   }
 
-  setEvent(event) {
-    this.setState({ category: event.target.value });
+  setTopic(event) {
+    this.setState({ topic: event.target.value });
   }
 
   Searching(event) {
     if (event.key === "Enter") {
-      this.props.Search(event.target.value, this.state.category);
+      this.props.Search(event.target.value, this.state.topic);
       this.setState({
-        hasText: true,
+        textInSearch: true,
         searched: event.target.value,
         redirect: true
       });
@@ -32,26 +32,30 @@ class SearchBar extends Component {
     if (event.target.value.length > 0) {
       this.setState({
         searched: event.target.value,
-        hasText: true
+        textInSearch: true
       });
     } else if (event.target.value.length === 0) {
-      this.setState({ hasText: false });
+      this.setState({ textInSearch: false });
     }
   }
 
   onClick(event) {
-    this.setState({ redirect: true });
-    this.props.Search(this.state.searched, this.state.category);
+    this.setState({ redirect: false });
+    this.props.Search(this.state.searched, this.state.topic);
   }
 
-  SearchWhat = () => (
+  SearchComp = () => (
     <div className="SearchContainer">
       <div className="What-are-you-searching-for">
         What are you searching for?
       </div>
-      <div className="RadioSearch" onChange={this.setEvent.bind(this)}> //Radiosearch needs css
+      <div className="RadioToggle" onChange={this.setTopic.bind(this)}>
         <input
-        //Add Radio buttons
+          style={{ marginRight: "5px" }}
+          type="radio"
+          value="people"
+          name="search"
+          defaultChecked
         />
         People
         <input className="People" type="radio" value="movies" name="search" />
@@ -63,18 +67,18 @@ class SearchBar extends Component {
         onChange={this.InputToggle.bind(this)}
       >
         <input
-          className="SearchArea"
+          className="Searchbox"
           type="text"
           name="searchBar"
-          placeholder={`e.g. ${this.state.topSearch}`}
+          placeholder={`e.g. ${this.state.topResults}`}
         />
         <button
           className={`SearchButton footer ${
-            this.state.hasText ? "enabled" : "disabled"
+            this.state.textInSearch ? "enabled" : "disabled"
           }`}
-          onClick={this.state.hasText ? this.onClick.bind(this) : null}
+          onClick={this.state.textInSearch ? this.onClick.bind(this) : null}
         >
-          {this.props.nowSearching ? "SEARCHING..." : "SEARCH"}
+          {this.props.currentlySearching ? "SEARCHING..." : "SEARCH"}
         </button>
       </div>
     </div>
@@ -83,18 +87,16 @@ class SearchBar extends Component {
   render() {
     if (this.state.redirect) {
       return (
-        <div>
-          <Redirect push to={`/category/${this.state.searched}`} />
-          <this.SearchWhat />
+        <div className="aside" style={{ marginLeft: "14%" }}>
+          <Redirect push to={`/topic/${this.state.searched}`} />
+          <this.SearchComp />
         </div>
       );
     }
     return (
-      <div>
-        <this.SearchWhat />
+      <div className="aside" style={{ marginLeft: "14%" }}>
+        <this.SearchComp />
       </div>
     );
   }
 }
-
-export default SearchBar;
