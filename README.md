@@ -1,2 +1,6 @@
-This project was created as a part of the application process for LawnStarter.
-The project is yet unfinished, and this file will be updated once code has been fully implemented.
+Project was created as an application exercise for Lawnstarter.
+To launch project perform the following steps:
+  1. Clone or download repository
+  2. In the CMD screen, perform npm install.
+  3. Navigate to project, then use command npm start.
+  4. Enjoy the SWAPI API.
